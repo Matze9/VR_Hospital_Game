@@ -5,11 +5,11 @@ using UnityEngine;
 public class AskForName : MonoBehaviour
 {
 
-    public AudioSource _source;
-    public AudioClip _chickenburger;
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _chickenburger;
     
     private string _disease;
-    public PatientState _patientState;
+    [SerializeField ]private PatientState _patientState;
 
 
     // Start is called before the first frame update
