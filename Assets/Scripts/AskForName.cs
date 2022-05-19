@@ -11,38 +11,31 @@ public class AskForName : MonoBehaviour
     private string _disease;
     public PatientState _patientState;
 
-    
 
-   
-
-
-    // Start is called before the first frame updat
+    // Start is called before the first frame update
     void Start()
     {
         // _patientState = GameObject.FindGameObjectWithTag("Patient").GetComponent<PatientState>();
 
         _disease = _patientState.getDesease();
 
-      
-    
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 
     public void askForName ()
     {
+        
+        _disease = _patientState.getDesease();
 
         if (_disease.Equals("overdose"))
         {
+            print("Works");
             _source.PlayOneShot(_chickenburger);
         }
-              
-        
+
+
+
+       
     }
 }
