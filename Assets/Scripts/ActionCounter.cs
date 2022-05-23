@@ -14,7 +14,7 @@ public class ActionCounter : MonoBehaviour
     void Start()
     {
 
-        _numOfActionsLeft = 4;
+        _numOfActionsLeft = 3;
         _actionsText.text = _numOfActionsLeft.ToString();
         
     }
