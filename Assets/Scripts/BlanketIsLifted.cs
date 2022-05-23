@@ -6,12 +6,23 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BlanketIsLifted : MonoBehaviour
 {
 
-   public Transform patient;
-    public Transform blanket;
-    bool x = false;
+  
+   private bool x;
+
+    [SerializeField] private Animator _animator;
+
+    [SerializeField] private PatientState _patientState;
+    [SerializeField] private ActionCounter _actionCounter;
+
+    private string _disease;
+    private bool _actionMade;
 
 
-    bool IsMoved = false;
+    private void Start()
+    {
+        x = false;
+    }
+
 
     public void moveCheck()
 
@@ -22,31 +33,48 @@ public class BlanketIsLifted : MonoBehaviour
     }
 
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-         
-
-
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-   
-       if (x == true)
+
+        
+
+        if (x == true)
         {
-            patient.Rotate(0, 0, 50 * Time.deltaTime);
+            int actionsLeft = _actionCounter.getNumofActionsLeft();
+
+            if (_actionMade == false && actionsLeft > 0)
+            {
+                _actionCounter.actionMade();
+                makeAction();
+                _actionMade = true;
+            }
+            else if (_actionMade == true)
+            {
+                makeAction();
+            }
+
+            print("Trigger Animation");
+
+            x = false;
+
         }
 
 
-        
+
     }
+
+    private void makeAction()
+    {
+        _disease = _patientState.getDesease();
+
+        if (_disease.Equals("overdose"))
+        {
+            _animator.SetBool("blanketLifted", true);
+        }
+
+    }
+
 }
 
 
