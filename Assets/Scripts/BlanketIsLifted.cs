@@ -70,7 +70,8 @@ public class BlanketIsLifted : MonoBehaviour
 
         if (_disease.Equals("overdose"))
         {
-            _animator.SetBool("blanketLifted", true);
+            // _animator.SetBool("blanketLifted", true);
+            _animator.SetTrigger("shake");
         }
 
     }
