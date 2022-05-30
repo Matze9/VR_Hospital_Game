@@ -15,7 +15,6 @@ public class PatientState : MonoBehaviour
     {
 
         //TODO: Create an Array with different diseases and choose random
-
         _disease = "overdose";
 
         _dis = new Desease("overdose");
@@ -34,15 +33,6 @@ class Desease
 {
     // Name of the desease
     private string _name;
-
-    private string _skinColor;
-    private string responsiveness;
-    private string _condition;
-    private string _language;
-    private bool _hasPain;
-    private bool _nausea;
-    private string _breath;
-
 
     public Desease (string name)
     {

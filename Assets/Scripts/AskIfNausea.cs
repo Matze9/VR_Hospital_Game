@@ -9,6 +9,7 @@ public class AskIfNausea : MonoBehaviour
 
     [SerializeField] private PatientState _patientState;
     [SerializeField] private ActionCounter _actionCounter;
+    [SerializeField] private Animator _animator;
 
     private string _disease;
     private bool _actionMade;
@@ -46,6 +47,7 @@ public class AskIfNausea : MonoBehaviour
         if (_disease.Equals("overdose"))
         {
             _source.PlayOneShot(_puke);
+            _animator.SetTrigger("puke");
         }
 
     }

@@ -54,7 +54,7 @@ public class BlanketIsLifted : MonoBehaviour
                 makeAction();
             }
 
-            print("Trigger Animation");
+           
 
             x = false;
 
@@ -72,6 +72,7 @@ public class BlanketIsLifted : MonoBehaviour
         {
             // _animator.SetBool("blanketLifted", true);
             _animator.SetTrigger("shake");
+            _animator.SetBool("isShaking", true);
         }
 
     }
