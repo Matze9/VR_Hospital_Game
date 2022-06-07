@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AreYouInPain : MonoBehaviour
+public class Respiration_Symptom : MonoBehaviour
 {
     [SerializeField] private AudioSource _source;
-    [SerializeField] private AudioClip _overdoseNoPain;
+    [SerializeField] private AudioClip _shallow;
+
+    [SerializeField] private PatientState _patientState;
+    [SerializeField] private ActionCounter _actionCounter;
 
     private string _disease;
     private bool _actionMade;
-    [SerializeField] private ActionCounter _actionCounter;
-    [SerializeField] private PatientState _patientState;
 
 
     // Start is called before the first frame update
@@ -20,9 +21,8 @@ public class AreYouInPain : MonoBehaviour
     }
 
 
-    public void checkIfInPain()
+    public void checkRespiration()
     {
-
         int actionsLeft = _actionCounter.getNumofActionsLeft();
 
         if (_actionMade == false && actionsLeft > 0)
@@ -41,13 +41,11 @@ public class AreYouInPain : MonoBehaviour
 
     private void makeAction()
     {
-
         _disease = _patientState.getDesease();
 
         if (_disease.Equals("overdose"))
         {
-
-            _source.PlayOneShot(_overdoseNoPain);
+            _source.PlayOneShot(_shallow);
         }
 
     }

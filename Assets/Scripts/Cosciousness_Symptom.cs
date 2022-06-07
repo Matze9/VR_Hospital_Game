@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cosciousness : MonoBehaviour
+public class Cosciousness_Symptom : MonoBehaviour
 {
     [SerializeField] private AudioSource _source;
     [SerializeField] private AudioClip _sleepy;

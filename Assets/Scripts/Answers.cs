@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowAnswers : MonoBehaviour
+public class Answers : MonoBehaviour
 {
 
     private bool _showAnswers;

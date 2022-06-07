@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AskForName : MonoBehaviour
+public class Nausea_Symptom : MonoBehaviour
 {
-
     [SerializeField] private AudioSource _source;
-    [SerializeField] private AudioClip _chickenburger;
-    
-    [SerializeField ]private PatientState _patientState;
+    [SerializeField] private AudioClip _puke;
+
+    [SerializeField] private PatientState _patientState;
     [SerializeField] private ActionCounter _actionCounter;
+    [SerializeField] private Animator _animator;
 
     private string _disease;
     private bool _actionMade;
@@ -18,30 +18,26 @@ public class AskForName : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // _patientState = GameObject.FindGameObjectWithTag("Patient").GetComponent<PatientState>();
-
-        
         _actionMade = false;
-
-
     }
 
 
-    public void askForName ()
+    public void aksIfNauseous()
     {
         int actionsLeft = _actionCounter.getNumofActionsLeft();
 
-        if(_actionMade == false && actionsLeft > 0)
+        if (_actionMade == false && actionsLeft > 0)
         {
             _actionCounter.actionMade();
             makeAction();
             _actionMade = true;
-        } else if (_actionMade == true)
+        }
+        else if (_actionMade == true)
         {
             makeAction();
         }
-        
-       
+
+
     }
 
     private void makeAction()
@@ -50,7 +46,8 @@ public class AskForName : MonoBehaviour
 
         if (_disease.Equals("overdose"))
         {
-            _source.PlayOneShot(_chickenburger);
+            _source.PlayOneShot(_puke);
+            _animator.SetTrigger("puke");
         }
 
     }
